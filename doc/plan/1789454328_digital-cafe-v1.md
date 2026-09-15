@@ -46,8 +46,8 @@ config) is something this session can create on its own.
 
 ### 5. Base template and CSS
 
-- [ ] Write `base.html` with the nav bar described above
-- [ ] Write `core/static/core/style.css` and link it in `base.html`
+- [x] Write `base.html` with the nav bar described above
+- [x] Write `core/static/core/style.css` and link it in `base.html`
 
 ### 6. Menu page
 
