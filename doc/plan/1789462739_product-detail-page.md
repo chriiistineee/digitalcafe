@@ -53,12 +53,14 @@ the section 2 checkpoint. Sections 2 and 3 build as one commit.
 
 ### 4. Add the product detail template
 
-- [ ] Write `core/templates/core/product_detail.html`, extending
+- [x] Write `core/templates/core/product_detail.html`, extending
       `base.html`. Show the product name and price
-- [ ] When `user.is_authenticated`, show a form posting to
+- [x] When `user.is_authenticated`, show a form posting to
       `core:add_to_cart`: a `quantity` number input (`min="1"`,
-      `value="1"`), a hidden `next` field set to `"detail"`, and the
-      product id
+      `value="1"`), and a hidden `next` field set to `"detail"`. No
+      separate hidden product id field is necessary, since
+      `add_to_cart` already reads `product_id` from the URL the form
+      posts to
 
 ### 5. Update the menu template
 

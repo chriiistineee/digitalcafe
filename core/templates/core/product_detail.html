@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+    <h1>{{ product.name }}</h1>
+    <p>Price: {{ product.price }} PHP</p>
+    {% if user.is_authenticated %}
+        <form method="post" action="{% url 'core:add_to_cart' product.id %}">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="detail">
+            <label for="quantity">Quantity</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button type="submit">Add to cart</button>
+        </form>
+    {% endif %}
+{% endblock %}
