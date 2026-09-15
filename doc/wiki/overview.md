@@ -22,6 +22,9 @@ The menu page also greets a logged-in user by username, and shows a
 flash message after "Add to cart". Each product name links to a
 detail page with a quantity field.
 
+A data migration seeds three products, so a fresh clone shows a
+working menu right after `migrate`. See `doc/wiki/running.md`.
+
 Out of scope for v1: payments, email, product images, search, and
 styling beyond a readable stylesheet.
 

@@ -5,8 +5,10 @@
 3. Start the dev server: `python manage.py runserver`
 4. Open `http://127.0.0.1:8000/`
 
-Add a product through `/admin/` first. The menu page has no rows to
-show until a product exists.
+Step 1 also seeds three products through a data migration
+(`core/migrations/0003_seed_products.py`): Americano (110.00),
+Cappuccino (140.00), and Espresso (100.00). The menu shows these three
+with no extra step. Add more through `/admin/`.
 
 ## Tests
 
