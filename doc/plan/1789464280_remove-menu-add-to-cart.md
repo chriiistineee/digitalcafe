@@ -16,19 +16,23 @@ session can create on its own.
 
 ### 1. Remove the button and column from menu.html
 
-- [ ] Remove the third `<th>`, the one with no header text
-- [ ] Remove the third `<td>` in each row: the
+- [x] Remove the third `<th>`, the one with no header text
+- [x] Remove the third `<td>` in each row: the
       `{% if user.is_authenticated %}` block and the add-to-cart form
       inside it
-- [ ] Change the empty-state row from `colspan="3"` to `colspan="2"`
+- [x] Change the empty-state row from `colspan="3"` to `colspan="2"`
 
 ### 2. Manual verification, before rendezvous
 
-- [ ] Confirm the menu table shows two columns: "Product Name" and
+- [x] Confirm the menu table shows two columns: "Product Name" and
       "Price (PHP)"
-- [ ] Confirm no "Add to cart" button shows on the menu, logged in or
+- [x] Confirm no "Add to cart" button shows on the menu, logged in or
       logged out
-- [ ] Click a product name on the menu. Confirm the detail page opens,
+- [x] Click a product name on the menu. Confirm the detail page opens,
       and its own "Add to cart" form still adds the chosen quantity
-- [ ] Confirm the cart, checkout, and history pages still render with
+- [x] Confirm the cart, checkout, and history pages still render with
       no error
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All five checks
+passed. The test file was not committed.
