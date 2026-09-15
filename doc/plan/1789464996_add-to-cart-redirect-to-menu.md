@@ -28,12 +28,17 @@ session can create on its own.
 
 ### 2. Manual verification, before rendezvous
 
-- [ ] From the detail page, submit a valid quantity. Confirm the
+- [x] From the detail page, submit a valid quantity. Confirm the
       redirect lands on the menu, and the flash message shows there
-- [ ] From the detail page, submit quantity 0, then "abc". Confirm an
+- [x] From the detail page, submit quantity 0, then "abc". Confirm an
       error message each time, no `CartItem` write, and the redirect
       stays on the detail page
-- [ ] Confirm the detail page needs no other change: the quantity
+- [x] Confirm the detail page needs no other change: the quantity
       input, the CSRF token, and the button stay as they are
-- [ ] Confirm the cart, checkout, and history pages still render with
+- [x] Confirm the cart, checkout, and history pages still render with
       no error
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All four checks
+passed, including a direct check that the detail page renders no
+`next` field anymore. The test file was not committed.
