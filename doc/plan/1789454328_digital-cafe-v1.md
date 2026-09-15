@@ -81,14 +81,19 @@ config) is something this session can create on its own.
 
 ### 10. Manual verification, before rendezvous
 
-- [ ] Confirm `makemigrations` and `migrate` run with no error
-- [ ] Register a user, log in, log out
-- [ ] Add two or three sample products through the admin
-- [ ] Add a product to the cart, then remove it
-- [ ] Add a product to the cart twice. Confirm the quantity increases
+- [x] Confirm `makemigrations` and `migrate` run with no error
+- [x] Register a user, log in, log out
+- [x] Add two or three sample products through the admin
+- [x] Add a product to the cart, then remove it
+- [x] Add a product to the cart twice. Confirm the quantity increases
       on one row instead of a duplicate row
-- [ ] Check out a non-empty cart. Confirm the cart empties and the
+- [x] Check out a non-empty cart. Confirm the cart empties and the
       transaction appears in history
-- [ ] Try to check out an empty cart. Confirm the app rejects it
-- [ ] Register a second user. Confirm this user cannot see the first
-      user's history
+- [x] Try to check out an empty cart. Confirm the app rejects it
+- [x] Register a second user. Confirm this user cannot see the
+      history of the first user
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All seven
+checks passed. The test file was not committed, since the plan
+calls for manual verification, not a permanent test suite.
