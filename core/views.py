@@ -2,6 +2,13 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
+from core.models import Product
+
+
+def menu(request):
+    products = Product.objects.all()
+    return render(request, "core/menu.html", {"products": products})
+
 
 def register(request):
     if request.method == "POST":

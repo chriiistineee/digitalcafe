@@ -51,8 +51,8 @@ config) is something this session can create on its own.
 
 ### 6. Menu page
 
-- [ ] Write the menu view at `/` and `/menu/`
-- [ ] Write `menu.html`. List every product with an "Add to cart" form
+- [x] Write the menu view at `/` and `/menu/`
+- [x] Write `menu.html`. List every product with an "Add to cart" form
       per row, shown only when logged in
 
 ### 7. Cart
