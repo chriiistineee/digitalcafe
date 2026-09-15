@@ -74,9 +74,9 @@ config) is something this session can create on its own.
 
 ### 9. Transaction history
 
-- [ ] Write the history view. Filter `Transaction` by
+- [x] Write the history view. Filter `Transaction` by
       `user=request.user`
-- [ ] Write `history.html`. List each transaction with its number,
+- [x] Write `history.html`. List each transaction with its number,
       date, and line items
 
 ### 10. Manual verification, before rendezvous

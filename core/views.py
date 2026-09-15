@@ -65,6 +65,16 @@ def checkout(request):
     return redirect("core:history")
 
 
+@login_required
+def history(request):
+    transactions = (
+        Transaction.objects.filter(user=request.user)
+        .order_by("-timestamp")
+        .prefetch_related("line_items")
+    )
+    return render(request, "core/history.html", {"transactions": transactions})
+
+
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
