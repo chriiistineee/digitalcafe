@@ -32,13 +32,17 @@ session can create on its own.
 
 ### 3. Manual verification, before rendezvous
 
-- [ ] Log in, view the menu. Confirm the greeting shows the username
-- [ ] Log out, view the menu. Confirm the greeting does not show
-- [ ] Log in, add a product to the cart. Confirm the menu page shows
+- [x] Log in, view the menu. Confirm the greeting shows the username
+- [x] Log out, view the menu. Confirm the greeting does not show
+- [x] Log in, add a product to the cart. Confirm the menu page shows
       "Added 1 of \<product name\> to your cart" after the redirect
-- [ ] Confirm the flash message renders with the `success` style, not
+- [x] Confirm the flash message renders with the `success` style, not
       the `error` style
-- [ ] Add the same product a second time. Confirm the message still
+- [x] Add the same product a second time. Confirm the message still
       reads "Added 1 of \<product name\>", not the running cart total
-- [ ] Confirm the cart page and history page still render with no
+- [x] Confirm the cart page and history page still render with no
       error
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All five
+checks passed. The test file was not committed.
