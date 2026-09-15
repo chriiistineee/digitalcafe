@@ -21,6 +21,10 @@ A unique constraint on `(user, product)` keeps one row per product in a
 cart. The `add_to_cart` view increases the quantity on a repeat add
 instead of creating a second row.
 
+A `CheckConstraint` (`quantity > 0`) rejects an invalid quantity at
+the database layer. This backs up the same check in `add_to_cart`,
+which is the only check once a quantity value comes from a request.
+
 `CartItem.subtotal` is a property, not a stored field:
 `quantity * product.price`.
 

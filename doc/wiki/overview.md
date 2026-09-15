@@ -19,7 +19,8 @@ Version 1 is complete and merged to `main`. It covers registration,
 login, logout, the menu, the cart, checkout, and transaction history.
 
 The menu page also greets a logged-in user by username, and shows a
-flash message after "Add to cart".
+flash message after "Add to cart". Each product name links to a
+detail page with a quantity field.
 
 Out of scope for v1: payments, email, product images, search, and
 styling beyond a readable stylesheet.

@@ -25,6 +25,7 @@ Defined in `core/urls.py`, under the `core` namespace.
 |---|---|---|---|
 | `/` | `core:menu` | GET | No |
 | `/menu/` | `core:menu-redirect` | GET | No |
+| `/product/<pk>/` | `core:product_detail` | GET | No |
 
 ### Cart and checkout
 
@@ -44,11 +45,21 @@ Defined in `core/urls.py`, under the `core` namespace.
 ## Notes
 
 - `/menu/` redirects to `core:menu`.
-- `core:add_to_cart` increases the quantity of an existing cart row on
-  a repeat add, then sets a flash message, for example "Added 1 of
+- `core:add_to_cart` reads an optional `quantity` field (default 1)
+  and adds it to an existing cart row, or creates one. It rejects a
+  non-integer or a value under 1 with an error message and no write.
+  On success it sets a flash message, for example "Added 3 of
   Americano to your cart."
+- `core:add_to_cart` reads an optional `next` field. `"detail"` sends
+  the visitor back to the product detail page they posted from.
+  Anything else, including a missing field, sends them to
+  `core:menu`. The field is never treated as a raw path, only as one
+  of these two known names, to avoid an open redirect.
 - `core:menu` greets a logged-in user by username, for example "Hi,
   christine123!". The greeting does not show when logged out.
+- `core:menu` links each product name to `core:product_detail`. The
+  detail page shows the name, the price, and, when logged in, an
+  add-to-cart form with a quantity input.
 - `core:remove_from_cart` and `core:history` filter by `request.user`.
 - `core:checkout` rejects an empty cart, then writes inside one atomic
   block.
