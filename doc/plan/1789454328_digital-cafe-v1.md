@@ -17,11 +17,11 @@ config) is something this session can create on its own.
 
 ### 1. Project scaffolding
 
-- [ ] Run `django-admin startproject digitalcafe .`
-- [ ] Run `python manage.py startapp core`
-- [ ] Add `core` to `INSTALLED_APPS`
-- [ ] Add `core.urls` to the project `urls.py`
-- [ ] Run `python manage.py migrate` for the default Django apps
+- [x] Run `django-admin startproject digitalcafe .`
+- [x] Run `python manage.py startapp core`
+- [x] Add `core` to `INSTALLED_APPS`
+- [x] Add `core.urls` to the project `urls.py`
+- [x] Run `python manage.py migrate` for the default Django apps
 
 ### 2. Data model
 
