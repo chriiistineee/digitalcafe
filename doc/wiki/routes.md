@@ -54,12 +54,15 @@ Defined in `core/urls.py`, under the `core` namespace.
   the visitor back to the product detail page they posted from.
   Anything else, including a missing field, sends them to
   `core:menu`. The field is never treated as a raw path, only as one
-  of these two known names, to avoid an open redirect.
+  of these two known names, to avoid an open redirect. No current form
+  sends `next=menu` or omits the field, since the only caller today is
+  the detail page, but the `core:menu` fallback stays as a default.
 - `core:menu` greets a logged-in user by username, for example "Hi,
   christine123!". The greeting does not show when logged out.
-- `core:menu` links each product name to `core:product_detail`. The
-  detail page shows the name, the price, and, when logged in, an
-  add-to-cart form with a quantity input.
+- `core:menu` links each product name to `core:product_detail`, and
+  has no add-to-cart form of its own. The detail page is the only
+  place to add a product to the cart. It shows the name, the price,
+  and, when logged in, an add-to-cart form with a quantity input.
 - `core:remove_from_cart` and `core:history` filter by `request.user`.
 - `core:checkout` rejects an empty cart, then writes inside one atomic
   block.

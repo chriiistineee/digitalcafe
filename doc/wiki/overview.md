@@ -18,9 +18,10 @@ own transaction history. Staff manage all data through the Django admin.
 Version 1 is complete and merged to `main`. It covers registration,
 login, logout, the menu, the cart, checkout, and transaction history.
 
-The menu page also greets a logged-in user by username, and shows a
-flash message after "Add to cart". Each product name links to a
-detail page with a quantity field.
+The menu page greets a logged-in user by username, and links each
+product name to a detail page. The detail page holds the only
+add-to-cart form, with a quantity field, and shows a flash message
+after it, for example "Added 2 of Americano to your cart."
 
 A data migration seeds three products, so a fresh clone shows a
 working menu right after `migrate`. See `doc/wiki/running.md`.
