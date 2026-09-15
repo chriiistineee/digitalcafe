@@ -38,11 +38,11 @@ config) is something this session can create on its own.
 
 ### 4. Auth
 
-- [ ] Write a registration view, form, and template at `/register/`
-- [ ] Wire `/login/` to the built-in `LoginView`
-- [ ] Wire `/logout/` to the built-in `LogoutView`
-- [ ] Set `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL` in settings
-- [ ] Write `templates/registration/login.html`
+- [x] Write a registration view, form, and template at `/register/`
+- [x] Wire `/login/` to the built-in `LoginView`
+- [x] Wire `/logout/` to the built-in `LogoutView`
+- [x] Set `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL` in settings
+- [x] Write `templates/registration/login.html`
 
 ### 5. Base template and CSS
 
