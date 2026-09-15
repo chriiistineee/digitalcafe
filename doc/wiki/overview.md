@@ -20,8 +20,9 @@ login, logout, the menu, the cart, checkout, and transaction history.
 
 The menu page greets a logged-in user by username, and links each
 product name to a detail page. The detail page holds the only
-add-to-cart form, with a quantity field, and shows a flash message
-after it, for example "Added 2 of Americano to your cart."
+add-to-cart form, with a quantity field. A successful add shows a
+flash message on the menu, for example "Added 2 of Americano to your
+cart," and a rejected quantity keeps the visitor on the detail page.
 
 A data migration seeds three products, so a fresh clone shows a
 working menu right after `migrate`. See `doc/wiki/running.md`.

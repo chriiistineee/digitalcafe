@@ -50,13 +50,11 @@ Defined in `core/urls.py`, under the `core` namespace.
   non-integer or a value under 1 with an error message and no write.
   On success it sets a flash message, for example "Added 3 of
   Americano to your cart."
-- `core:add_to_cart` reads an optional `next` field. `"detail"` sends
-  the visitor back to the product detail page they posted from.
-  Anything else, including a missing field, sends them to
-  `core:menu`. The field is never treated as a raw path, only as one
-  of these two known names, to avoid an open redirect. No current form
-  sends `next=menu` or omits the field, since the only caller today is
-  the detail page, but the `core:menu` fallback stays as a default.
+- `core:add_to_cart` picks its own redirect target, from its own
+  validation result, not from a field in the request. A rejected
+  quantity sends the visitor back to `core:product_detail`. A
+  successful add sends them to `core:menu`. No value in the request
+  ever chooses a redirect target.
 - `core:menu` greets a logged-in user by username, for example "Hi,
   christine123!". The greeting does not show when logged out.
 - `core:menu` links each product name to `core:product_detail`, and
