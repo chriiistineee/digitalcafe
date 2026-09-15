@@ -66,11 +66,11 @@ config) is something this session can create on its own.
 
 ### 8. Checkout
 
-- [ ] Write the checkout view (POST only)
-- [ ] Reject an empty cart before any write
-- [ ] Wrap the `Transaction` and `LineItem` creation, plus the cart
+- [x] Write the checkout view (POST only)
+- [x] Reject an empty cart before any write
+- [x] Wrap the `Transaction` and `LineItem` creation, plus the cart
       deletion, in `transaction.atomic()`
-- [ ] Redirect to the history page after checkout
+- [x] Redirect to the history page after checkout
 
 ### 9. Transaction history
 
