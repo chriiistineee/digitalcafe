@@ -24,9 +24,19 @@ session can create on its own.
 
 ### 2. Manual verification, before rendezvous
 
-- [ ] Confirm `migrate` creates all three products on a database that
+- [x] Confirm `migrate` creates all three products on a database that
       has none of them
-- [ ] Run `migrate` a second time. Confirm no duplicate row appears
-- [ ] Confirm `migrate` back to `core.0002` removes all three, then
+- [x] Run `migrate` a second time. Confirm no duplicate row appears
+- [x] Confirm `migrate` back to `core.0002` removes all three, then
       `migrate` forward again restores them
-- [ ] Confirm the menu page lists all three with the right prices
+- [x] Confirm the menu page lists all three with the right prices
+
+Verified with a temporary Django `TransactionTestCase` run through
+`manage.py test`, against an isolated test database. All four checks
+passed. The test file was not committed.
+
+A `TransactionTestCase` flushes table data between tests but leaves
+the `django_migrations` record alone, so a plain `migrate()` in
+`setUp` saw 0003 as already applied and reran nothing. `setUp` had to
+step back to `core.0002`, then forward, before each test, to force
+the seed to run against the freshly flushed table.
