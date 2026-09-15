@@ -57,12 +57,12 @@ config) is something this session can create on its own.
 
 ### 7. Cart
 
-- [ ] Write `add_to_cart` (POST only). Look up an existing `CartItem`
+- [x] Write `add_to_cart` (POST only). Look up an existing `CartItem`
       before it creates a new one, then increase the quantity
-- [ ] Write the cart view (GET). Show each item, its subtotal, and a
+- [x] Write the cart view (GET). Show each item, its subtotal, and a
       cart total
-- [ ] Write `remove_from_cart` (POST only)
-- [ ] Write `cart.html`
+- [x] Write `remove_from_cart` (POST only)
+- [x] Write `cart.html`
 
 ### 8. Checkout
 

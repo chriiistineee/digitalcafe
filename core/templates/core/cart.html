@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Cart{% endblock %}
+
+{% block content %}
+    <h1>Cart</h1>
+    {% if cart_items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal (PHP)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.subtotal }}</td>
+                        <td>
+                            <form class="inline" method="post" action="{% url 'core:remove_from_cart' item.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>Total: {{ total }} PHP</p>
+        <form method="post" action="{% url 'core:checkout' %}">
+            {% csrf_token %}
+            <button type="submit">Check out</button>
+        </form>
+    {% else %}
+        <p>The cart is empty.</p>
+    {% endif %}
+{% endblock %}

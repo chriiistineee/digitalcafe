@@ -25,6 +25,10 @@ class CartItem(models.Model):
     def __str__(self):
         return f"{self.quantity} x {self.product} for {self.user}"
 
+    @property
+    def subtotal(self):
+        return self.quantity * self.product.price
+
 
 class Transaction(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

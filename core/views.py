@@ -1,13 +1,43 @@
 from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 
-from core.models import Product
+from core.models import CartItem, Product
 
 
 def menu(request):
     products = Product.objects.all()
     return render(request, "core/menu.html", {"products": products})
+
+
+@login_required
+@require_POST
+def add_to_cart(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    cart_item, created = CartItem.objects.get_or_create(
+        user=request.user, product=product, defaults={"quantity": 1}
+    )
+    if not created:
+        cart_item.quantity += 1
+        cart_item.save()
+    return redirect("core:menu")
+
+
+@login_required
+def cart(request):
+    cart_items = CartItem.objects.filter(user=request.user).select_related("product")
+    total = sum(item.subtotal for item in cart_items)
+    return render(request, "core/cart.html", {"cart_items": cart_items, "total": total})
+
+
+@login_required
+@require_POST
+def remove_from_cart(request, item_id):
+    cart_item = get_object_or_404(CartItem, pk=item_id, user=request.user)
+    cart_item.delete()
+    return redirect("core:cart")
 
 
 def register(request):
