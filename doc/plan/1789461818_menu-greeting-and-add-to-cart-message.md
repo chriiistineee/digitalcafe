@@ -19,7 +19,7 @@ session can create on its own.
 
 ### 1. Add the greeting to the menu page
 
-- [ ] In `core/templates/core/menu.html`, inside `{% block content %}`,
+- [x] In `core/templates/core/menu.html`, inside `{% block content %}`,
       add a line shown only when `user.is_authenticated`: "Hi,
       {{ user.username }}!"
 
