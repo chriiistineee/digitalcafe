@@ -71,19 +71,23 @@ the section 2 checkpoint. Sections 2 and 3 build as one commit.
 
 ### 6. Manual verification, before rendezvous
 
-- [ ] Confirm `makemigrations` and `migrate` run with no error
-- [ ] Confirm the new constraint holds: a direct attempt to save a
+- [x] Confirm `makemigrations` and `migrate` run with no error
+- [x] Confirm the new constraint holds: a direct attempt to save a
       `CartItem` with `quantity=0` raises an `IntegrityError`
-- [ ] View a product detail page while logged out. Confirm no
+- [x] View a product detail page while logged out. Confirm no
       add-to-cart form shows
-- [ ] View a product detail page while logged in. Add a quantity of 3.
+- [x] View a product detail page while logged in. Add a quantity of 3.
       Confirm `CartItem.quantity` is 3 and the message reads "Added 3
       of \<product name\> to your cart."
-- [ ] From the detail page, submit quantity 0, then "abc". Confirm an
+- [x] From the detail page, submit quantity 0, then "abc". Confirm an
       error message, no `CartItem` write, and the redirect stays on
       the detail page
-- [ ] From the menu page, use the one-click button. Confirm quantity 1
+- [x] From the menu page, use the one-click button. Confirm quantity 1
       and the redirect returns to the menu
-- [ ] Click a product name on the menu. Confirm it opens the detail
+- [x] Click a product name on the menu. Confirm it opens the detail
       page for that product
-- [ ] Confirm the menu header reads "Product Name"
+- [x] Confirm the menu header reads "Product Name"
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All six checks
+passed. The test file was not committed.
