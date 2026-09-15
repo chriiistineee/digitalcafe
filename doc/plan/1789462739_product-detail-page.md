@@ -23,10 +23,10 @@ session can create on its own.
 
 ### 1. Add a database check constraint on CartItem.quantity
 
-- [ ] In `core/models.py`, add
+- [x] In `core/models.py`, add
       `models.CheckConstraint(condition=models.Q(quantity__gt=0),
       name="cart_item_quantity_gt_zero")` to `CartItem.Meta.constraints`
-- [ ] Run `makemigrations` and `migrate`
+- [x] Run `makemigrations` and `migrate`
 
 ### 2. Add the product detail route
 
