@@ -45,7 +45,10 @@ Defined in `core/urls.py`, under the `core` namespace.
 
 - `/menu/` redirects to `core:menu`.
 - `core:add_to_cart` increases the quantity of an existing cart row on
-  a repeat add.
+  a repeat add, then sets a flash message, for example "Added 1 of
+  Americano to your cart."
+- `core:menu` greets a logged-in user by username, for example "Hi,
+  christine123!". The greeting does not show when logged out.
 - `core:remove_from_cart` and `core:history` filter by `request.user`.
 - `core:checkout` rejects an empty cart, then writes inside one atomic
   block.
