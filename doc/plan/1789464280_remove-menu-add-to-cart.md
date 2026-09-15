@@ -24,11 +24,15 @@ session can create on its own.
 
 ### 2. Manual verification, before rendezvous
 
-- [ ] Confirm the menu table shows two columns: "Product Name" and
+- [x] Confirm the menu table shows two columns: "Product Name" and
       "Price (PHP)"
-- [ ] Confirm no "Add to cart" button shows on the menu, logged in or
+- [x] Confirm no "Add to cart" button shows on the menu, logged in or
       logged out
-- [ ] Click a product name on the menu. Confirm the detail page opens,
+- [x] Click a product name on the menu. Confirm the detail page opens,
       and its own "Add to cart" form still adds the chosen quantity
-- [ ] Confirm the cart, checkout, and history pages still render with
+- [x] Confirm the cart, checkout, and history pages still render with
       no error
+
+Verified with a temporary Django `TestCase` run through
+`manage.py test`, against an isolated test database. All five checks
+passed. The test file was not committed.
