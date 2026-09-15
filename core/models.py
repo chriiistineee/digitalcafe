@@ -19,7 +19,10 @@ class CartItem(models.Model):
         constraints = [
             models.UniqueConstraint(
                 fields=["user", "product"], name="unique_cart_item_per_user_product"
-            )
+            ),
+            models.CheckConstraint(
+                condition=models.Q(quantity__gt=0), name="cart_item_quantity_gt_zero"
+            ),
         ]
 
     def __str__(self):
