@@ -25,9 +25,9 @@ session can create on its own.
 
 ### 2. Add the add-to-cart flash message
 
-- [ ] In `core/views.py`, in `add_to_cart`, call `messages.success`
+- [x] In `core/views.py`, in `add_to_cart`, call `messages.success`
       with the product name before `return redirect("core:menu")`
-- [ ] Match the wording style of the existing checkout messages, for
+- [x] Match the wording style of the existing checkout messages, for
       example "Added 1 of Americano to your cart."
 
 ### 3. Manual verification, before rendezvous

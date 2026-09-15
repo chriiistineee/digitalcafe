@@ -24,6 +24,7 @@ def add_to_cart(request, product_id):
     if not created:
         cart_item.quantity += 1
         cart_item.save()
+    messages.success(request, f"Added 1 of {product.name} to your cart.")
     return redirect("core:menu")
 
 
