@@ -28,25 +28,28 @@ session can create on its own.
       name="cart_item_quantity_gt_zero")` to `CartItem.Meta.constraints`
 - [x] Run `makemigrations` and `migrate`
 
-### 2. Add the product detail route
+### 2. Add the product detail route and 3. extend add_to_cart
 
-- [ ] In `core/urls.py`, add `path("product/<int:pk>/",
+`core/urls.py` calls `views.product_detail` directly in a `path()`
+entry, not by string, so the route and the view must exist in the same
+commit. A route added alone would raise `AttributeError` on import at
+the section 2 checkpoint. Sections 2 and 3 build as one commit.
+
+- [x] In `core/urls.py`, add `path("product/<int:pk>/",
       views.product_detail, name="product_detail")`
-
-### 3. Extend add_to_cart with quantity and a whitelisted next
-
-- [ ] Read `quantity` from POST, default `"1"`. Reject a non-integer
-      or a value under 1 with an error message. Do not write to
-      `CartItem` on rejection
-- [ ] Read `next` from POST. Accept only `"menu"` or `"detail"` (with
-      a product id for `"detail"`). Resolve the target with
-      `reverse()`. Fall back to `core:menu` for any other value
-- [ ] Change the `get_or_create` defaults and the repeat-add branch to
-      use the submitted quantity, not a fixed 1
-- [ ] Update the success message to read the submitted quantity, for
-      example "Added 3 of Americano to your cart."
-- [ ] Write the `product_detail` view: fetch the product with
+- [x] Write the `product_detail` view: fetch the product with
       `get_object_or_404`, render `core/product_detail.html`
+- [x] In `add_to_cart`, read `quantity` from POST, default `"1"`.
+      Reject a non-integer or a value under 1 with an error message.
+      Do not write to `CartItem` on rejection
+- [x] Read `next` from POST. Accept only `"detail"` as a special case,
+      resolved with `redirect("core:product_detail", pk=product_id)`
+      using the `product_id` already in the URL. Fall back to
+      `core:menu` for any other value, including a missing field
+- [x] Change the `get_or_create` defaults and the repeat-add branch to
+      use the submitted quantity, not a fixed 1
+- [x] Update the success message to read the submitted quantity, for
+      example "Added 3 of Americano to your cart."
 
 ### 4. Add the product detail template
 
