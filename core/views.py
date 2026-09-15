@@ -24,18 +24,13 @@ def product_detail(request, pk):
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
-    if request.POST.get("next") == "detail":
-        redirect_target = redirect("core:product_detail", pk=product_id)
-    else:
-        redirect_target = redirect("core:menu")
-
     try:
         quantity = int(request.POST.get("quantity", "1"))
     except ValueError:
         quantity = 0
     if quantity < 1:
         messages.error(request, "Quantity must be a positive integer.")
-        return redirect_target
+        return redirect("core:product_detail", pk=product_id)
 
     cart_item, created = CartItem.objects.get_or_create(
         user=request.user, product=product, defaults={"quantity": quantity}
@@ -44,7 +39,7 @@ def add_to_cart(request, product_id):
         cart_item.quantity += quantity
         cart_item.save()
     messages.success(request, f"Added {quantity} of {product.name} to your cart.")
-    return redirect_target
+    return redirect("core:menu")
 
 
 @login_required

@@ -16,14 +16,14 @@ session can create on its own.
 
 ### 1. Remove next and branch by outcome in add_to_cart
 
-- [ ] In `core/templates/core/product_detail.html`, remove the
+- [x] In `core/templates/core/product_detail.html`, remove the
       `<input type="hidden" name="next" value="detail">` line
-- [ ] In `core/views.py` `add_to_cart`, delete the
+- [x] In `core/views.py` `add_to_cart`, delete the
       `if request.POST.get("next") == "detail": ... else: ...` block
-- [ ] On a rejected quantity, redirect to
+- [x] On a rejected quantity, redirect to
       `redirect("core:product_detail", pk=product_id)`, in the branch
       that sets the error message
-- [ ] On success, redirect to `redirect("core:menu")`, in the branch
+- [x] On success, redirect to `redirect("core:menu")`, in the branch
       that sets the success message
 
 ### 2. Manual verification, before rendezvous
