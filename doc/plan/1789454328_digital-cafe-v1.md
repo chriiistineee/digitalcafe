@@ -33,7 +33,7 @@ config) is something this session can create on its own.
 
 ### 3. Admin
 
-- [ ] Register `Product`, `CartItem`, `LineItem`, and `Transaction` in
+- [x] Register `Product`, `CartItem`, `LineItem`, and `Transaction` in
       `core/admin.py`
 
 ### 4. Auth
