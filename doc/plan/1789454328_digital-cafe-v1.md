@@ -25,11 +25,11 @@ config) is something this session can create on its own.
 
 ### 2. Data model
 
-- [ ] Write `Product` in `core/models.py`
-- [ ] Write `CartItem`, with a unique constraint on `(user, product)`
-- [ ] Write `Transaction`
-- [ ] Write `LineItem`
-- [ ] Run `makemigrations` and `migrate`
+- [x] Write `Product` in `core/models.py`
+- [x] Write `CartItem`, with a unique constraint on `(user, product)`
+- [x] Write `Transaction`
+- [x] Write `LineItem`
+- [x] Run `makemigrations` and `migrate`
 
 ### 3. Admin
 
