@@ -64,9 +64,9 @@ the section 2 checkpoint. Sections 2 and 3 build as one commit.
 
 ### 5. Update the menu template
 
-- [ ] Rename the "Product" header to "Product Name"
-- [ ] Wrap `{{ product.name }}` in a link to `core:product_detail`
-- [ ] Add a hidden `next` field set to `"menu"` to the existing
+- [x] Rename the "Product" header to "Product Name"
+- [x] Wrap `{{ product.name }}` in a link to `core:product_detail`
+- [x] Add a hidden `next` field set to `"menu"` to the existing
       add-to-cart form
 
 ### 6. Manual verification, before rendezvous

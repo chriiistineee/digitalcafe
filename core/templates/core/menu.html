@@ -10,7 +10,7 @@
     <table>
         <thead>
             <tr>
-                <th>Product</th>
+                <th>Product Name</th>
                 <th>Price (PHP)</th>
                 <th></th>
             </tr>
@@ -18,12 +18,13 @@
         <tbody>
             {% for product in products %}
                 <tr>
-                    <td>{{ product.name }}</td>
+                    <td><a href="{% url 'core:product_detail' product.id %}">{{ product.name }}</a></td>
                     <td>{{ product.price }}</td>
                     <td>
                         {% if user.is_authenticated %}
                             <form class="inline" method="post" action="{% url 'core:add_to_cart' product.id %}">
                                 {% csrf_token %}
+                                <input type="hidden" name="next" value="menu">
                                 <button type="submit">Add to cart</button>
                             </form>
                         {% endif %}
