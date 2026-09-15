@@ -14,13 +14,13 @@ session can create on its own.
 
 ### 1. Add the seed migration
 
-- [ ] Write `core/migrations/0003_seed_products.py`, depending on
+- [x] Write `core/migrations/0003_seed_products.py`, depending on
       `core.0002_cartitem_cart_item_quantity_gt_zero`
-- [ ] Forward: `get_or_create` on `name` for Americano (110.00),
+- [x] Forward: `get_or_create` on `name` for Americano (110.00),
       Cappuccino (140.00), Espresso (100.00), so a repeat `migrate`
       creates no duplicate
-- [ ] Reverse: delete the three products by name
-- [ ] Run `migrate`, then confirm all three rows exist
+- [x] Reverse: delete the three products by name
+- [x] Run `migrate`, then confirm all three rows exist
 
 ### 2. Manual verification, before rendezvous
 
